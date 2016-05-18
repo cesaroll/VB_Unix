@@ -1,0 +1,104 @@
+[Project ID]
+Signature=UE Proj: v.1
+[Project Information]
+Use Relative Directory=1
+Relative to Project File=1
+Include Sub Directories=1
+Project Tagfile=
+Project Wordfile=
+Filter=
+Create Tagfile=0
+[Group]
+0=dev
+1=dev - project_structure
+2=dev - project_structure - objects
+3=dev - project_structure - procs
+4=dev - project_structure - bin
+5=dev - project_structure - migration
+6=dev - project_structure - objects - master_project
+7=dev - project_structure - objects - master_project_po
+8=dev - project_structure - objects - mp_task_mapping
+9=dev - project_structure - objects - promis
+10=dev - project_structure - migration - master_project
+11=dev - project_structure - migration - master_project_po
+12=dev - project_structure - migration - mp_task_mapping
+13=dev - project_structure - migration - promis
+14=dev - project_structure - bin - master_project
+15=dev - project_structure - bin - master_project_po
+16=dev - project_structure - bin - mp_task_mapping
+17=dev - project_structure - objects - super_revenue_project
+18=dev - project_structure - migration - super_revenue_project
+19=dev - project_structure - bin - super_revenue_project
+20=dev - project_structure - objects - srp_detail_master
+21=dev - project_structure - migration - srp_detail_master
+22=dev - project_structure - bin - srp_detail_master
+[FTP Linked Folders]
+dev=KACI-DALBIC-01|~/dev/
+dev - project_structure=KACI-DALBIC-01|~/dev/project_structure/
+dev - project_structure - bin=KACI-DALBIC-01|~/dev/project_structure/bin
+dev - project_structure - objects=KACI-DALBIC-01|~/dev/project_structure/objects
+[Files - dev - project_structure - objects - master_project]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project.view
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project_master.tbl
+2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project_validation_rules.sql
+3=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project_yyyy.view
+4=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|stg_master_project.tbl
+5=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project_yyyy.view.all
+[Files - dev - project_structure - objects - master_project_po]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project_po.view
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project_po_validation_rules.sql
+2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project_po_yyyy.view
+3=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|stg_master_project_po.tbl
+4=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project_po_hist.tbl
+5=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project_po_yyyy.view.all
+[Files - dev - project_structure - objects - mp_task_mapping]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|mp_task_mapping.view
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|mp_task_mapping_master.tbl
+2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|mp_task_mapping_yyyy.view
+3=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|mp_task_mapping_yyyy.view.all
+4=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|stg_mp_task_mapping.tbl
+5=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|mp_task_mapping_validation_rules.sql
+[Files - dev - project_structure - objects - promis]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|promis_revpkgspo.tbl
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|tag_the_base_master.tbl
+2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|promis_phase_revenue.tbl
+[Files - dev - project_structure - migration - master_project]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/migration|load_master_project_hist.com
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/migration|load_master_project_hist.com.all
+[Files - dev - project_structure - migration - master_project_po]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/migration|load_master_project_po_hist.com
+[Files - dev - project_structure - migration - mp_task_mapping]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/migration|load_mp_task_mapping_hist.com
+[Files - dev - project_structure - migration - promis]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/migration|load_promis_phase_revenue.com
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/migration|load_promis_revpkgspo_hist.com
+2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/migration|load_tag_the_base_hist.com
+3=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/migration|load_tag_the_base_hist.com.all
+[Files - dev - project_structure - bin - master_project]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/bin|load_master_project.com
+[Files - dev - project_structure - bin - master_project_po]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/bin|load_master_project_po.com
+[Files - dev - project_structure - bin - mp_task_mapping]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/bin|load_mp_task_mapping.com
+[Files - dev - project_structure - objects - super_revenue_project]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|super_revenue_project_master.tbl
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|super_revenue_project.view
+2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|super_revenue_project_yyyy.view
+3=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|super_revenue_project_yyyy.view.all
+4=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|stg_super_revenue_project.tbl
+5=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|super_revenue_project_validation_rules.sql
+[Files - dev - project_structure - migration - super_revenue_project]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/migration|load_super_revenue_project_hist.com
+[Files - dev - project_structure - bin - super_revenue_project]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/bin|load_super_revenue_project.com
+[Files - dev - project_structure - objects - srp_detail_master]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|srp_detail_master.tbl
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|srp_detail.view
+2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|srp_detail_yyyy.view
+3=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|srp_detail_yyyy.view.all
+4=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|stg_srp_detail.tbl
+5=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|srp_detail_validation_rules.sql
+[Files - dev - project_structure - migration - srp_detail_master]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/migration|load_srp_detail_hist.com
+[Files - dev - project_structure - bin - srp_detail_master]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/bin|load_srp_detail.com

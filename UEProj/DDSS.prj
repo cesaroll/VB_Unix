@@ -1,0 +1,82 @@
+[Project ID]
+Signature=UE Proj: v.1
+[Project Information]
+Use Relative Directory=1
+Relative to Project File=1
+Include Sub Directories=1
+Project Tagfile=
+Project Wordfile=
+Filter=
+Create Tagfile=0
+[Group]
+0=dev
+1=dev - mgt_organization
+2=dev - mgt_organization - bin
+3=dev - mgt_organization - migration
+4=dev - mgt_organization - objects
+5=dev - mgt_organization - procs
+6=dev - common
+7=dev - common - procs
+8=dev - common - bin
+9=dev - warehouse
+10=dev - transfers
+11=dev - data
+12=dev - data - migration
+13=bin
+14=dev - webapp_config
+15=dev - webapp_config - objects
+16=dev - common - objects
+[Files - dev - mgt_organization - bin]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/bin|load_firm.com
+[Files - dev - mgt_organization - migration]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/migration|load_firm_hist.com
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/migration|upd_acct_firm_hist.com
+2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/migration|ppl.sql
+3=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/migration|load_promis_firm_2016.in
+4=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/migration|load_mgt_organiation_hist.com
+5=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/migration|load_market_sector_hist.com
+6=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/migration|drop_firm_yyyy_tables.com
+7=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/migration|drop_firm_view.com
+[Files - dev - mgt_organization - objects]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|stg_firm.tbl
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|sector_yyyy.view
+2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|sector.view
+3=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|promis_firm_master.tbl
+4=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|production_office_yyyy.view
+5=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|production_office.view
+6=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|mgt_organization.tbl
+7=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|market_sector_yyyy.view
+8=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|market_sector.view
+9=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|firm_yyyy.view
+10=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|firm_validation_rules.data
+11=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|firm_master.tbl
+12=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|firm.view
+13=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|dept_yyyy.view
+14=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|dept.view
+15=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|business_unit_yyyy.view
+16=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/objects|business_unit.view
+[Files - dev - common - procs]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/procs|xfer_validation.sp
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/procs|xfer_val_max_len.sp
+2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/procs|xfer_val_has_data.sp
+3=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/procs|xfer_val_date.sp
+4=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/procs|xfer_val_valid_value.sp
+5=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/procs|xfer_val_valid_currency.sp
+6=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/procs|xfer_val_uniqueness.sp
+[Files - dev - common - bin]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/bin|get_year_period_week.com
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/bin|get_calendar.com
+[Files - dev - warehouse]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/warehouse|globals.com
+[Files - dev - transfers]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/transfers|globals.com
+[Files - dev - data - migration]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/data/migration|mgt_organization.in.ctl
+[Files - bin]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/bin|table_exists.com
+[Files - dev - webapp_config - objects]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_save_delegates.sp
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_report_criteria.sp
+[Files - dev - common - objects]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/objects|xfer_validation_rules.tbl
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/objects|xfer_validation_errors.tbl

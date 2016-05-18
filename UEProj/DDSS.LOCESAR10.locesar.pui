@@ -1,0 +1,25 @@
+[Open Files]
+Active File Display Mode=-1
+Open File0=
+Remember Files=1
+
+[Project Information]
+Project Start=E00703000400110016001400030000002C
+Working Time=174494
+
+[Folders]
+dev=1
+dev - common=1
+dev - common - bin=1
+dev - common - procs=1
+dev - data=1
+dev - data - migration=1
+dev - mgt_organization=1
+dev - mgt_organization - bin=1
+dev - mgt_organization - migration=1
+dev - mgt_organization - objects=1
+dev - transfers=1
+dev - warehouse=1
+dev - webapp_config=1
+dev - webapp_config - objects=1
+

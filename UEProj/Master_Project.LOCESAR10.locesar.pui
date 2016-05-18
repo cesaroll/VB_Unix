@@ -1,0 +1,40 @@
+[Open Files]
+Active File Display Mode=3
+Active File Index=4
+Open File Line0=0
+Open File Line1=745
+Open File Line2=3467
+Open File Line3=2868
+Open File Line4=5835
+Open File Pos0=2047
+Open File Pos1=1140
+Open File Pos2=3469
+Open File Pos3=2925
+Open File Pos4=6809
+Open File Window Pos0=0,1,-1,-1,-8,-31,78,78,1102,508
+Open File Window Pos1=0,1,-1,-1,-8,-31,130,130,1154,560
+Open File Window Pos2=0,1,-1,-1,-8,-31,52,52,1076,482
+Open File Window Pos3=0,1,-1,-1,-8,-31,104,104,1128,534
+Open File Window Pos4=2,3,-1,-1,-8,-31,26,26,1050,456
+Open File0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project_po.tbl
+Open File1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|stg_master_project_po.tbl
+Open File2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/migration|load_master_project_po_hist.com
+Open File3=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/bin|load_master_project.com
+Open File4=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/bin|load_master_project_po.com
+Open File5=
+Remember Files=1
+
+[Project Information]
+Project Start=E007030003001000100017002F00000053
+Working Time=246174
+
+[Folders]
+dev=1
+dev - bin=1
+dev - common=1
+dev - mgt_organization=1
+dev - project_structure=1
+dev - project_structure - bin=1
+dev - project_structure - migration=1
+dev - project_structure - objects=1
+
