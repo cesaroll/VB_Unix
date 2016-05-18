@@ -1,0 +1,50 @@
+#!/usr/bin/ksh
+. /u/dss/$DSS_MODE/warehouse/globals.com
+
+#################################################################################
+# TABLE: promis_phase_revenue 
+# 
+# Date          Developer       Description
+# ===========   =========       ================================================
+# 04/15/2016    Cesar L.        Create Table 
+#
+#################################################################################
+TABLE_NAME=promis_phase_revenue 
+TABLESPACE=ext_ctrl_data
+
+if [[ $(table_exists.com ${TABLE_NAME}) -eq $TRUE ]]; then
+  echo "Table (${TABLE_NAME}) already exists. Exiting..."
+  exit
+else
+  echo "Creating table (${TABLE_NAME})..."
+fi
+
+
+run_sql <<-ISQL_EOF
+
+create table ${TABLE_NAME}
+(  
+   revenue_package  number(6),
+   subproject       number(6),
+   work_package     char(3),
+   work_package2    char(3),
+   scope_type       char(2),
+   proj             number(6),
+   firm             varchar2(5),
+   phase            varchar2(4),
+   begin_date       date,
+   end_date         date,
+   control_id       varchar2(8),
+   control_date     date
+) 
+PARTITION BY RANGE (begin_date)
+INTERVAL (NUMTOYMINTERVAL(1,'YEAR'))
+(PARTITION p0 VALUES LESS THAN (TO_DATE('01/01/2001','MM/DD/YYYY')) )
+TABLESPACE ${TABLESPACE};
+
+create index ppr_idx1 on promis_phase_revenue (revenue_package, proj, phase, firm);
+
+grant select on ${TABLE_NAME} to dss_admin, dss_support_role, reports;
+
+
+ISQL_EOF

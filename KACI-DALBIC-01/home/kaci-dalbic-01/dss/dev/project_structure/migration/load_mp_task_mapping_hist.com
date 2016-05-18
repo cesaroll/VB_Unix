@@ -29,14 +29,6 @@ SET SERVEROUTPUT ON;
 
 TRUNCATE TABLE ${TABLE_NAME};
 
-DECLARE  
-  
-  v_start_time      NUMBER;  
-  v_end_time        NUMBER;
-
-BEGIN
-  
-  v_start_time := DBMS_UTILITY.get_time;
   
   Insert Into ${TABLE_NAME}
    (
@@ -116,9 +108,7 @@ BEGIN
         Group by master_project, project, task, firm ) pr
   )
   Where production_office is not null;
-  
-END;
-/
+
 
 end_sql
 
