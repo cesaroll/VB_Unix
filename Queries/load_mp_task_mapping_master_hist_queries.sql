@@ -106,7 +106,7 @@ Select revenue_package,
     where  revenue_package is not null
       and  proj = 176179 --is not null
       and  phase is not null
-      and  firm is not null
+      and  firm = 'BBVL'
       and  subproject > 0
       and  begin_date is not null
     order by revenue_package, proj, phase, firm, association_year, disassociation_year;
@@ -117,7 +117,7 @@ Select master_project
 From (Select year, master_project
       From dss.tag_the_base_master
       where revenue_package = 176179
-        and year between 2012 and 2013
+        and year between 2014 and 2050
       order by year desc)
 Where rownum <= 1;
 
@@ -128,36 +128,127 @@ Select *
                 from (Select production_office 
                       from dss.promis_revpkgspo
                       where revenue_package = 176179
-                        and subproject = 1
-                        and firm = 'BVCOR'
+                        --and subproject = 1
+                        and firm = 'BBVL'
                       order by expiration_date desc) 
                 where rownum <= 1;
                 
-Select * from dss.mp_task_mapping_master_new;
-Select * from dss.mp_task_mapping_master_new where task = 8521;
-Select count(*) from dss.mp_task_mapping_master_new;
-Select count(*) from dss.mp_task_mapping_master;
 
-Select count(*) from dss.mp_task_mapping_master_tmp; -- Insert at count: 175478 Elapsed time: 6674
-Select count(*) from dss.mp_task_mapping_master_tmp_bkp;
+Select count(*) from dss.mp_task_mapping_master;
+Select * from dss.mp_task_mapping_master where master_project = 176179 and firm = 'BBVL';
+Select * from dss.mp_task_mapping_master;
+Select * from dss.mp_task_mapping_master where firm = 'BBVL';
+
+
+Select count(*) from dss.mp_task_mapping_master_tmp; -- 5k rows every 20 secs.
 Select * from dss.mp_task_mapping_master_tmp;
 
-Select production_office 
+Select * 
               from dss.promis_revpkgspo
               where revenue_package = 176179
                 --and subproject = 1
-                and firm = 'CCEDC';
-                
+                --and firm = 'BBVL'
+                ;
+
 Select master_project                ,
            MIN(production_office) keep (dense_rank last order by last_update_date) as production_office,
            MIN(owning_production_office_flag) keep (dense_rank last order by last_update_date) as opof,
            firm                          ,
            project                       ,
            task                          ,
-           MIN(association_date)         ,
-           MAX(disassociation_date)      ,
+           MIN(association_date) as association_date,
+           MAX(disassociation_date) as disassociation_date,
            NVL(MIN(last_updated_by) keep (dense_rank last order by last_update_date), ' ') as last_updated_by,
            NVL(MAX(last_update_date), sysdate) as last_update_date
     From dss.mp_task_mapping_master_tmp
-    Group By master_project, project, task, firm
-    Order by master_project, project, task, firm;
+    Group By master_project, project, task, firm;
+
+SET LINESIZE 200;
+WHENEVER SQLERROR EXIT -1 ROLLBACK;
+SET SERVEROUTPUT ON;
+declare
+  v_curr_po Number := 0;
+  res BOOLEAN := false;
+begin  
+                
+    FOR row IN (
+        Select production_office
+        from (Select production_office 
+              from dss.promis_revpkgspo
+              where revenue_package = 176179
+                and subproject = 1
+                and firm = 'BBVL'
+              order by expiration_date desc) 
+        where rownum <= 1
+      ) LOOP
+      
+        res   := true;
+        v_curr_po  := row.production_office;
+        
+        exit;
+      
+      END LOOP;
+
+  DBMS_OUTPUT.PUT_LINE('PO: ' || v_curr_po);
+
+  If res = false Then
+      
+        FOR row IN (
+          Select production_office
+          from (Select production_office 
+                from dss.promis_revpkgspo
+              where revenue_package = 176179
+                and firm = 'BBVL'
+                order by expiration_date desc) 
+          where rownum <= 1
+        ) LOOP
+        
+          res   := true;
+          v_curr_po  := row.production_office;
+          
+          exit;
+        
+        END LOOP;
+      
+      End If; 
+      
+      DBMS_OUTPUT.PUT_LINE('PO: ' || v_curr_po);
+  
+  If res = false Then
+      
+        FOR row IN (
+          Select production_office
+          from (Select production_office 
+                from dss.promis_revpkgspo
+              where revenue_package = 176179
+                order by expiration_date desc) 
+          where rownum <= 1
+        ) LOOP
+        
+          res   := true;
+          v_curr_po  := row.production_office;
+          
+          exit;
+        
+        END LOOP;
+      
+      End If; 
+      
+      DBMS_OUTPUT.PUT_LINE('PO: ' || v_curr_po);
+  
+end;
+/
+
+
+Select * 
+                      from dss.promis_revpkgspo
+                      where revenue_package = 179954
+                      --and subproject = 1
+                        and firm = 'BBVL';
+                        
+Select * 
+              from dss.promis_revpkgspo
+              where revenue_package = 176179
+                --and subproject = 1
+                and firm = 'BBVL'
+                ;                        

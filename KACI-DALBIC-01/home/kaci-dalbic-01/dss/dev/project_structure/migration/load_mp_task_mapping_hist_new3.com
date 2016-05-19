@@ -20,7 +20,7 @@ echo " "
 
 #Tables
 
-TABLE_NAME=mp_task_mapping_master_new
+TABLE_NAME=mp_task_mapping_master
 TEMP_TABLE=mp_task_mapping_master_tmp
 REVPKGSPO_TABLE=promis_revpkgspo
 PHASE_REV_TABLE=promis_phase_revenue
@@ -251,7 +251,32 @@ DECLARE
         
         END LOOP;
       
-      End If;           
+      End If;
+      
+      If res = false Then
+      
+        FOR row IN (
+          Select production_office
+          from (Select production_office 
+                from ${REVPKGSPO_TABLE}
+                where revenue_package = p_mp
+                order by expiration_date desc) 
+          where rownum <= 1
+        ) LOOP
+        
+          res   := true;
+          p_po  := row.production_office;
+          
+          /*Set Current Values*/
+          v_curr_subp := p_subp;
+          v_curr_firm := p_firm;
+          v_curr_po   := p_po;
+          
+          exit;
+        
+        END LOOP;
+      
+      End If;
     
     End If;    
 
@@ -389,6 +414,7 @@ END;
 end_sql
 
 echo " "
+echo " `date` "
 echo "-------------------------------------------------"
 echo " Second Step - Group All Data "
 echo "-------------------------------------------------"
