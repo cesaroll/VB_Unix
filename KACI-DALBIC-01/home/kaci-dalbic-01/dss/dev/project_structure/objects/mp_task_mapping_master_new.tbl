@@ -1,0 +1,47 @@
+#!/usr/bin/ksh
+. /u/dss/$DSS_MODE/warehouse/globals.com
+
+#################################################################################
+# TABLE: mp_task_mapping_master_new 
+# 
+# Date          Developer       Description
+# ===========   =========       ================================================
+# 04/13/2016    Cesar L.        Create Table 
+#
+#################################################################################
+TABLE_NAME=mp_task_mapping_master_new
+TABLESPACE=data_warehouse
+
+if [[ $(table_exists.com ${TABLE_NAME}) -eq $TRUE ]]; then
+  echo "Table (${TABLE_NAME}) already exists. Exiting..."
+  exit
+else
+  echo "Creating table (${TABLE_NAME})..."
+fi
+
+run_sql <<-ISQL_EOF
+
+create table ${TABLE_NAME}
+(  
+  master_project                number(10)    not null,
+  production_office             number(10)    not null,
+  owning_production_office_flag char(1)       not null,
+  firm                          varchar2(10)  not null,
+  project                       number(10)    not null,
+  task                          varchar2(4)   not null,
+  association_date              date          not null,
+  disassociation_date           date                  ,
+  last_updated_by               varchar2(15)  not null,
+  last_update_date              date          not null,
+  control_date                  date          not null,
+  constraint ${TABLE_NAME}_pk primary key 
+  (master_project, production_office, project, task, firm)
+)
+PARTITION BY RANGE (association_date)
+INTERVAL (NUMTOYMINTERVAL(1,'YEAR'))
+(PARTITION p0 VALUES LESS THAN (TO_DATE('01/01/2002','MM/DD/YYYY')) )
+TABLESPACE ${TABLESPACE};
+ 
+grant select on ${TABLE_NAME} to dss_admin, dss_support_role, reports;
+
+ISQL_EOF

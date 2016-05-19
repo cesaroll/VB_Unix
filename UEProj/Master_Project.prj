@@ -58,6 +58,7 @@ dev - project_structure - objects=KACI-DALBIC-01|~/dev/project_structure/objects
 3=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|mp_task_mapping_yyyy.view.all
 4=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|stg_mp_task_mapping.tbl
 5=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|mp_task_mapping_validation_rules.sql
+6=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|mp_task_mapping_master_tmp.tbl
 [Files - dev - project_structure - objects - promis]
 0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|promis_revpkgspo.tbl
 1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/objects|tag_the_base_master.tbl
