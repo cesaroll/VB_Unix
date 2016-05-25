@@ -1,0 +1,90 @@
+#!/usr/bin/ksh
+. /u/dss/$DSS_MODE/transfers/globals.com
+
+#############################################################################################
+#
+# Version Who     When     What
+# ======= ======= ======== ==================================================================
+# Initial Karla R.  05/23/2016 Staging table for cost_summary
+#############################################################################################
+TABLE_NAME=stg_cost_summary
+TABLESPACE=data_warehouse_staging
+
+if [[ $(table_exists.com ${TABLE_NAME}) -eq $TRUE ]]; then
+  echo "Table (${TABLE_NAME}) already exists. Exiting..."
+  exit
+else
+  echo "Creating table (${TABLE_NAME})..."
+fi
+
+
+
+run_sql <<-ISQL_EOF
+
+create table ${TABLE_NAME}
+  (
+    year                      number(4)    not null,
+    period                    number(2)    not null,
+    project                   number(10)   not null,
+    project_firm              number(10)   not null,
+    task                      varchar2(4)  not null,
+    task_dept                 number(10)   not null,
+    provider_firm             varchar2(10), 
+    master_project            number(10) ,  
+    production_office         number(10)  not null, 
+    proj_currency_id          varchar2(3) not null,
+    proj_func_currency_id     varchar2(3) not null,
+    func_currency_id          varchar2(3),
+    rept_currency_id          varchar2(3),
+    staff_hours               number(31,2),
+    proj_salary               number(31,2)  , 
+    proj_pay_burden           number(31,2)  ,
+    proj_expense              number(31,2)  ,
+    proj_func_salary          number(31,2) ,
+    proj_func_pay_burden      number(31,2)  ,
+    proj_func_expense         number(31,2) ,  
+    func_salary               number(31,2),
+    func_pay_burden           number(31,2),
+    func_expense              number(31,2),
+    rept_salary               number(31,2),
+    rept_pay_burden           number(31,2),
+    rept_expense              number(31,2),
+    ytd_staff_hours           number(31,2),
+    ytd_proj_salary           number(31,2),
+    ytd_proj_pay_burden       number(31,2),
+    ytd_proj_expense          number(31,2),
+    ytd_proj_func_salary      number(31,2),
+    ytd_proj_func_pay_burden  number(31,2),
+    ytd_proj_func_expense     number(31,2),
+    ytd_func_salary           number(31,2),
+    ytd_func_pay_burden       number(31,2),
+    ytd_func_expense          number(31,2),
+    ytd_rept_salary           number(31,2),
+    ytd_rept_pay_burden       number(31,2),
+    ytd_rept_expense          number(31,2),
+    itd_staff_hours           number(31,2),
+    itd_proj_salary           number(31,2),
+    itd_proj_pay_burden       number(31,2),
+    itd_proj_expense          number(31,2),
+    itd_proj_func_salary      number(31,2),
+    itd_proj_func_pay_burden  number(31,2),
+    itd_proj_func_expense     number(31,2),
+    itd_func_salary           number(31,2),
+    itd_func_pay_burden       number(31,2),
+    itd_func_expense          number(31,2),
+    itd_rept_salary           number(31,2),
+    itd_rept_pay_burden       number(31,2),
+    itd_rept_expense          number(31,2),
+    last_updated_by           varchar2(15),
+    last_update_date          date,
+    control_date              date,   
+    valid                     char(1),  
+    validation_result         varchar2(999)  
+)
+tablespace ${TABLESPACE};  
+ 
+create index ${TABLE_NAME}_idx on ${TABLE_NAME} (Year,period,project_firm,project,task, provider_firm);
+
+grant select on ${TABLE_NAME} to dss_admin, dss_support_role, dss_query_labor, dss_query_non_labor,reports;
+
+ISQL_EOF

@@ -1,0 +1,106 @@
+#!/usr/bin/ksh
+. /u/dss/$DSS_MODE/warehouse/globals.com
+
+################################################################
+# TABLE: cost_summary 
+# 
+# Date          Developer       Description
+# ===========   =========    ==============================
+# 05/16/2016    Karla R.        Create Table 
+################################################################
+
+TABLE_NAME=cost_summary 
+TABLESPACE=data_warehouse
+
+if [[ $(table_exists.com ${TABLE_NAME}) -eq $TRUE ]]; then
+  echo "Table (${TABLE_NAME}) already exists. Exiting..."
+  exit
+else
+  echo "Creating table (${TABLE_NAME})..."
+fi
+
+run_sql <<-ISQL_EOF
+
+create table ${TABLE_NAME}
+(  
+  year                      number(4)    not null,
+  period                    number(2)    not null,
+  project                   number(10)   not null,
+  project_firm              number(10)   not null,
+  task                      varchar2(4)  not null,
+  task_dept                 number(10)   not null,
+  provider_firm             varchar2(10), 
+  master_project            number(10) ,  
+  production_office         number(10)  not null, 
+  proj_currency_id          varchar2(3) not null,
+  proj_func_currency_id     varchar2(3) not null,
+  func_currency_id          varchar2(3),
+  rept_currency_id          varchar2(3),
+  staff_hours               number(31,2),
+  proj_salary               number(31,2)  , 
+  proj_pay_burden           number(31,2)  ,
+  proj_expense              number(31,2)  ,
+  proj_func_salary          number(31,2) ,
+  proj_func_pay_burden      number(31,2)  ,
+  proj_func_expense         number(31,2) ,  
+  func_salary               number(31,2),
+  func_pay_burden           number(31,2),
+  func_expense              number(31,2),
+  rept_salary               number(31,2),
+  rept_pay_burden           number(31,2),
+  rept_expense              number(31,2),
+  ytd_staff_hours           number(31,2),
+  ytd_proj_salary           number(31,2),
+  ytd_proj_pay_burden       number(31,2),
+  ytd_proj_expense          number(31,2),
+  ytd_proj_func_salary      number(31,2),
+  ytd_proj_func_pay_burden  number(31,2),
+  ytd_proj_func_expense     number(31,2),
+  ytd_func_salary           number(31,2),
+  ytd_func_pay_burden       number(31,2),
+  ytd_func_expense          number(31,2),
+  ytd_rept_salary           number(31,2),
+  ytd_rept_pay_burden       number(31,2),
+  ytd_rept_expense          number(31,2),
+  itd_staff_hours           number(31,2),
+  itd_proj_salary           number(31,2),
+  itd_proj_pay_burden       number(31,2),
+  itd_proj_expense          number(31,2),
+  itd_proj_func_salary      number(31,2),
+  itd_proj_func_pay_burden  number(31,2),
+  itd_proj_func_expense     number(31,2),
+  itd_func_salary           number(31,2),
+  itd_func_pay_burden       number(31,2),
+  itd_func_expense          number(31,2),
+  itd_rept_salary           number(31,2),
+  itd_rept_pay_burden       number(31,2),
+  itd_rept_expense          number(31,2),
+  last_updated_by           varchar2(15),
+  last_update_date          date,
+  control_date              date      ,  
+  constraint ${TABLE_NAME}_pk primary key (Year,period,project_firm,project,task, provider_firm)
+) 
+PARTITION BY RANGE(year) INTERVAL (1)
+  SUBPARTITION BY LIST(period)
+  SUBPARTITION template
+  (
+      SUBPARTITION sp1 VALUES (1),
+      SUBPARTITION sp2 VALUES (2),
+      SUBPARTITION sp3 VALUES (3),
+      SUBPARTITION sp4 VALUES (4),
+      SUBPARTITION sp5 VALUES (5),
+      SUBPARTITION sp6 VALUES (6),
+      SUBPARTITION sp7 VALUES (7),
+      SUBPARTITION sp8 VALUES (8),
+      SUBPARTITION sp9 VALUES (9),
+      SUBPARTITION sp10 VALUES (10),
+      SUBPARTITION sp11 VALUES (11),
+      SUBPARTITION sp12 VALUES (12),
+      SUBPARTITION spd VALUES (DEFAULT)
+  )
+(PARTITION empty VALUES LESS THAN(2002))
+tablespace ${TABLESPACE};
+ 
+grant select on ${TABLE_NAME} to dss_admin,dss_support_role,dss_query_labor,dss_query_non_labor,reports;
+
+ISQL_EOF

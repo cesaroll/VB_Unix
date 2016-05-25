@@ -22,4 +22,5 @@ dev - transfers=1
 dev - warehouse=1
 dev - webapp_config=1
 dev - webapp_config - objects=1
-
+dev - cost_load=1
+dev - cost_load - objects=1
