@@ -1,10 +1,20 @@
-select * 
-      --distinct name, type 
+select --* 
+      distinct name, type 
 from dss.bic_report_criteria 
 where form_id = 'REPORT_COST_DETAIL'
  and ((type = 'user' and creator_id = 15100)
        OR type = 'shared')
 order by type, name;
+
+Select REPLACE(REPLACE(name, '<' , ''), '>', '') as name, type
+from (
+select distinct name, type 
+from dss.bic_report_criteria 
+where form_id = 'REPORT_COST_DETAIL'
+ and ((type = 'user' and creator_id = 15100)
+       OR type = 'shared')
+order by type, name
+);
 
 select count(* )
 from dss.bic_report_criteria 
@@ -71,4 +81,14 @@ where form_id = 'REPORT_COST_DETAIL'
  and ((type = 'user' and creator_id = 83554)
        OR type = 'shared')
 order by type, name;
+
+Select * From dss.web_error_log order by ERR_DATE desc;
+Select * From dss.web_error_log where user_identity = 'AMERICAS\locesar' order by ERR_DATE desc;
+Select * From web_error_log where user_identity like '%locesar%' order by ERR_DATE desc;
+
+--delete web_error_log where user_identity like '%locesar%';
+
+desc dss.web_error_log;
+
+desc dss.web_account_mapping;
 

@@ -1,0 +1,55 @@
+#!/usr/bin/ksh
+. /u/dss/$DSS_MODE/warehouse/globals.com
+
+#######################################################################################
+# VIEW: mp_task_mapping
+# 
+# Date          Developer       Description
+# ===========   =========       =======================================================
+# 04/13/2016    Cesar L.        The view references the current data in 
+#                               mp_task_mapping_master table.
+########################################################################################
+
+TABLE_NAME=mp_task_mapping_master
+BASE_NAME=mp_task_mapping
+
+if [[ $# -gt 1 ]]; then
+  echo "USAGE: $0 <year>"
+  exit -1
+elif [[ $# -ne 1 ]]; then
+  . /u/dss/$DSS_MODE/common/bin/get_calendar.com
+  YEAR=$C_YEAR
+  VIEW_NAME=${BASE_NAME}
+  echo "Creating view (${VIEW_NAME})..."
+else
+  YEAR=$1
+  VIEW_NAME=${BASE_NAME}_${YEAR}
+  echo "Creating view (${VIEW_NAME})..."
+fi
+
+echo
+echo $YEAR_END_DATE
+echo 
+
+run_sql <<-ISQL_EOF
+CREATE OR REPLACE VIEW ${VIEW_NAME}
+AS
+  SELECT master_project                ,
+         production_office             ,
+         owning_production_office_flag ,
+         firm                          ,
+         project                       ,
+         task                          ,
+         association_date              ,
+         disassociation_date           ,
+         last_updated_by               ,
+         last_update_date              ,
+         control_date
+  FROM  ${TABLE_NAME}
+  WHERE TO_DATE('${YEAR_END_DATE}', 'DD-MON-YYYY') BETWEEN association_date AND  disassociation_date;
+--  WHERE ${YEAR} BETWEEN EXTRACT(YEAR FROM association_date) AND EXTRACT(YEAR FROM disassociation_date);
+
+GRANT SELECT ON ${VIEW_NAME} TO dss_admin, dss_support_role, reports,
+        dss_query_labor, dss_query_non_labor, prism;
+        
+ISQL_EOF

@@ -29,6 +29,9 @@ Create Tagfile=0
 17=dev - cost_load
 18=dev - cost_load - objects
 19=dev - cost_load - bin
+20=dev - project_structure
+21=dev - project_structure - bin
+22=dev - cost_load - migration
 [Files - dev - mgt_organization - bin]
 0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/mgt_organization/bin|load_firm.com
 [Files - dev - mgt_organization - migration]
@@ -79,7 +82,8 @@ Create Tagfile=0
 0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/bin|table_exists.com
 [Files - dev - webapp_config - objects]
 0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_save_delegates.sp
-1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_report_criteria.sp
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_rep_criteria.sp
+2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_web_tree_nodes.sp
 [Files - dev - common - objects]
 0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/objects|xfer_validation_rules.tbl
 1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/objects|xfer_validation_errors.tbl
@@ -89,3 +93,8 @@ Create Tagfile=0
 2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/cost_load/objects|cost_summary_validation_rules.sql
 [Files - dev - cost_load - bin]
 0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/cost_load/bin|load_cost_summary.com
+[Files - dev - project_structure - bin]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/project_structure/bin|top_task_organization.com
+[Files - dev - cost_load - migration]
+0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/cost_load/migration|update_cost_fact_1.com
+1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/cost_load/migration|update_cost_fact_1.com.all

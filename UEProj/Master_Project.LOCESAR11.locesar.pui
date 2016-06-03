@@ -5,12 +5,13 @@ Remember Files=1
 
 [Project Information]
 Project Start=E0070500010002000F0013001800000029
-Working Time=242888
+Working Time=356330
 
 [Folders]
 dev=1
 dev - project_structure=1
 dev - project_structure - bin=1
+dev - project_structure - bin - master_project=1
 dev - project_structure - bin - master_project_po=1
 dev - project_structure - bin - mp_task_mapping=1
 dev - project_structure - migration=1
