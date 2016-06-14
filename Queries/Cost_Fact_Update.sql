@@ -60,6 +60,6 @@ Then
       cf.co_key_top_task_org = sq.key_top_task_org;
       
 Select * from dss.cost_fact where co_key_top_task_org is not null;
-Select Count(*) from cost_fact where co_key_top_task_org is not null;
+Select /*+ PARALLEL */ Count(*) from cost_fact where co_key_top_task_org is not null;
 
 Select MIN(co_effective_date), Max(co_effective_date) from cost_fact;

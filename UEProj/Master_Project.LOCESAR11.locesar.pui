@@ -1,11 +1,24 @@
 [Open Files]
-Active File Display Mode=-1
-Open File0=
+Active File Display Mode=1
+Active File Index=2
+Open File Line0=0
+Open File Line1=0
+Open File Line2=0
+Open File Pos0=1242
+Open File Pos1=0
+Open File Pos2=774
+Open File Window Pos0=0,1,-1,-1,-1,-1,5,27,1581,996
+Open File Window Pos1=0,1,-1,-1,-1,-1,5,27,1581,996
+Open File Window Pos2=0,1,-1,-1,-1,-1,5,27,1581,996
+Open File0=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/migration|load_mp_task_mapping_hist.com
+Open File1=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/bin|load_mp_task_mapping.com
+Open File2=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/bin|load_master_project.com
+Open File3=
 Remember Files=1
 
 [Project Information]
-Project Start=E0070500010002000F0013001800000029
-Working Time=356330
+	Project Start=E0070500010002000F0013001800000029
+	Working Time=377075
 
 [Folders]
 dev=1
@@ -15,6 +28,7 @@ dev - project_structure - bin - master_project=1
 dev - project_structure - bin - master_project_po=1
 dev - project_structure - bin - mp_task_mapping=1
 dev - project_structure - migration=1
+dev - project_structure - migration - master_project=1
 dev - project_structure - migration - mp_task_mapping=1
 dev - project_structure - objects=1
 dev - project_structure - objects - master_project=1

@@ -1,11 +1,20 @@
 [Open Files]
-Active File Display Mode=-1
-Open File0=
+Active File Display Mode=1
+Active File Index=1
+Open File Line0=4369
+Open File Line1=594
+Open File Pos0=4931
+Open File Pos1=0
+Open File Window Pos0=0,1,-1,-1,-1,-1,5,27,1255,899
+Open File Window Pos1=0,1,-1,-1,-1,-1,5,27,1255,899
+Open File0=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/cost_load/bin|load_cost_summary.com
+Open File1=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/common/procs|xfer_validation.sp
+Open File2=
 Remember Files=1
 
 [Project Information]
-Project Start=E0070500010002000F0013001800000029
-Working Time=254838
+	Project Start=E0070500010002000F0013001800000029
+	Working Time=255196
 
 [Folders]
 bin=1
