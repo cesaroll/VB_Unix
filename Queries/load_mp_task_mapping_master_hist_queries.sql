@@ -440,5 +440,25 @@ Group By master_project, project, task, firm;
 
 Select * from dss.mp_task_mapping_master2;
 Select count(*) from dss.mp_task_mapping_master2;
+Select count(*) from dss.mp_task_mapping_master;
 
+Select Count(*) From dss.mp_task_mapping_master_tmp;
 
+Select * From dss.mp_task_mapping_master tm1
+Where not exists (Select 1 
+  FRom dss.mp_task_mapping_master2 tm2
+  Where tm2.master_project = tm1.master_project
+    and tm2.production_office = tm1.production_office
+    and tm2.project = tm1.project
+    and tm2.task = tm1.task
+    and tm2.firm = tm1.firm);
+    
+Select * from dss.tag_the_base_master tb
+where tb.mp_status = 'U'
+  and exists (Select 1 
+              from dss.mp_task_mapping_master tm
+              where tm.master_project = tb.master_project
+                and year >=2015);
+
+Select * from dss.tag_the_base_master tb
+              where tb.master_project = 179608;

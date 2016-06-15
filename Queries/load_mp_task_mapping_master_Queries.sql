@@ -92,6 +92,9 @@ WHERE table_name = 'stg_mp_task_mapping'
 group by validation_result
 order by 1;
 
+Select * from dss.stg_mp_task_mapping;
+Select count(*) from dss.stg_mp_task_mapping;
+
 
 -- To end date non-existing records
 select count(*) from dss.mp_task_mapping_master t
@@ -125,3 +128,40 @@ select *
 select count(*) from dss.mp_task_mapping_master where last_updated_by     = 'MIGRATE';
 select * from dss.mp_task_mapping_master where last_updated_by     = 'MIGRATE';
 
+
+select * from SSE_MP_Task_Mapping_VIEW;
+
+
+select /*+ PARALLEL */ 
+         tmv.master_project,
+         tmv.production_office,
+         tmv.opo_flag,
+         tmv.firm,
+         tmv.project,
+         tmv.task,
+         Decode(tm.master_project, null, sysdate, tm.association_date) as association_date,             
+         To_Date('02022050', 'MMDDYYYY') as disassociation_date,
+         tmv.last_updated_by,
+         tmv.last_update_date,
+         sysdate
+  From (select mp_project_num as master_project,
+              production_office,
+              MIN(owning_production_office_flag) KEEP (Dense_Rank Last Order By last_update_date) as  opo_flag,
+              firm,
+              project_num as project,
+              task_num as task,                                    
+              MIN(last_updated_by) KEEP (Dense_Rank Last Order By last_update_date) as  last_updated_by,
+              MAX(last_update_date) as last_update_date
+       from SSE_MP_TASK_MAPPING_VIEW
+       group by mp_project_num, production_office, project_num, task_num, firm) tmv
+       Left Join
+       dss.mp_task_mapping_master tm 
+       on
+              tmv.master_project       = tm.master_project
+          and tmv.production_office    = tm.production_office
+          and tmv.project              = tm.project
+          and tmv.task                 = tm.task
+          and tmv.firm                 = tm.firm
+  Where tm.master_project is Null
+    Or  Decode(tm.disassociation_date, To_Date('02022050', 'MMDDYYYY'), 0, 1) = 1
+    Or  Decode(tm.owning_production_office_flag, tmv.opo_flag, 0, 1 ) = 1;

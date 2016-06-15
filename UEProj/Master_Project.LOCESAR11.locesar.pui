@@ -1,19 +1,6 @@
 [Open Files]
-Active File Display Mode=1
-Active File Index=0
-Open File Line0=1611
-Open File Line1=0
-Open File Line2=6062
-Open File Pos0=7834
-Open File Pos1=1431
-Open File Pos2=8943
-Open File Window Pos0=0,1,-1,-1,-1,-1,5,27,1585,996
-Open File Window Pos1=0,1,-1,-1,-1,-1,5,27,1585,996
-Open File Window Pos2=0,1,-1,-1,-1,-1,5,27,1585,996
-Open File0=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/bin|load_mp_task_mapping.com
-Open File1=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/objects|mp_task_mapping_master.tbl
-Open File2=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/bin|load_master_project.com
-Open File3=
+Active File Display Mode=-1
+Open File0=
 Remember Files=1
 
 [Project Information]
@@ -21,17 +8,17 @@ Remember Files=1
 	Working Time=377075
 
 [Folders]
-dev=1
-dev - project_structure=1
-dev - project_structure - bin=1
-dev - project_structure - bin - master_project=1
-dev - project_structure - bin - master_project_po=1
-dev - project_structure - bin - mp_task_mapping=1
-dev - project_structure - migration=1
-dev - project_structure - migration - master_project=1
-dev - project_structure - migration - mp_task_mapping=1
-dev - project_structure - objects=1
-dev - project_structure - objects - master_project=1
-dev - project_structure - objects - mp_task_mapping=1
-dev - project_structure - objects - promis=1
-
+	dev=1
+	dev - project_structure=1
+	dev - project_structure - bin=1
+	dev - project_structure - bin - master_project=1
+	dev - project_structure - bin - master_project_po=1
+	dev - project_structure - bin - mp_task_mapping=1
+	dev - project_structure - migration=1
+	dev - project_structure - migration - master_project=1
+	dev - project_structure - migration - mp_task_mapping=1
+	dev - project_structure - objects=1
+	dev - project_structure - objects - master_project=1
+	dev - project_structure - objects - mp_task_mapping=1
+	dev - project_structure - objects - promis=1
+	dev - project_structure - bin - super_revenue_project=1
