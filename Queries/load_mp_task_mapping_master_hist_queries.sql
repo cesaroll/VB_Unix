@@ -20,7 +20,7 @@ SELECT TABLE_NAME,
             HIGH_VALUE
 FROM DBA_TAB_PARTITIONS
 WHERE
-TABLE_NAME='MP_TASK_MAPPING_MASTER'
+TABLE_NAME='MP_TASK_MAPPING_MASTER2'
 ORDER BY PARTITION_POSITION;
 
 
@@ -251,4 +251,194 @@ Select *
               where revenue_package = 176179
                 --and subproject = 1
                 and firm = 'BBVL'
-                ;                        
+                ;
+                
+select * from dss.mp_task_mapping_master 
+where project = 163108;
+
+Select revenue_package,
+           subproject,       
+           firm,
+           proj as project,
+           phase as task,       
+           begin_date as association_date,
+           EXTRACT(year from begin_date) as association_year,
+           end_date as disassociation_date,
+           EXTRACT(year from end_date) as disassociation_year,
+           control_id as last_updated_by,
+           control_date as last_update_date
+    from dss.promis_phase_revenue
+    where  revenue_package = 163102 -- is not null
+      and  proj = 163108
+      and  phase is not null
+      and  firm is not null
+      and  subproject > 0
+      and  begin_date is not null
+    order by revenue_package, proj, phase, firm, association_year, disassociation_year;
+    
+Select Distinct year, master_project
+From dss.tag_the_base_master
+Where Revenue_package = 163102;
+
+Select distinct year, master_project
+              From dss.tag_the_base_master
+              where revenue_package = 163102
+                and year between 2008 and 2050
+              order by year desc;
+
+Select master_project
+        From (Select distinct year, master_project
+              From dss.tag_the_base_master
+              where revenue_package = 163102
+                and year between 2008 and 2050
+              order by year desc)
+        Where rownum <= 1;
+        
+select *
+                    from SSE_MP_TASK_MAPPING_VIEW v
+                    where v.mp_project_num    = 163102
+                      and v.production_office = 921
+                      and v.project_num       = 163108
+                      and v.task_num          = 0101
+                      and v.firm              = '0101';
+                      
+Select Extract(year from begin_date), count(*)
+from dss.promis_phase_revenue 
+group by Extract(year from begin_date)
+order by 1;
+
+
+           
+Select  master_project,
+        MIN(production_office) keep (dense_rank last order by last_update_date) as production_office,
+        Decode(MIN(subproject) keep (dense_rank last order by last_update_date), 1, 'Y', 'N') as opof,
+        firm,
+        project,
+        task,
+        MIN(association_date) as association_date,
+        MAX(disassociation_date) as disassociation_date,
+        NVL(MAX(last_update_date), sysdate) as last_update_date
+From 
+    (Select (Select master_project
+             From   (Select distinct tb.year, tb.master_project
+                     From dss.tag_the_base_master tb
+                     Where tb.revenue_package = pr.revenue_package
+                       and tb.year between pr.association_year and pr.disassociation_year
+                     Order By tb.year desc)
+             Where rownum <= 1) as master_project,
+            pr.*,
+            NVL((Select production_office
+                 From  (Select rp.production_office
+                        From   dss.promis_revpkgspo rp
+                        where  rp.revenue_package = pr.revenue_package
+                          and  rp.subproject      = pr.subproject
+                          and  rp.firm            = pr.firm
+                        order by rp.expiration_date desc)
+                 Where rownum <= 1), 
+                 (Select production_office
+                 From  (Select rp.production_office
+                        From   dss.promis_revpkgspo rp
+                        where  rp.revenue_package = pr.revenue_package
+                          and  rp.firm            = pr.firm
+                        order by rp.expiration_date desc)
+                 Where rownum <= 1)) as Production_office
+    From   (Select revenue_package,
+                   subproject,       
+                   firm,
+                   proj as project,
+                   phase as task,       
+                   begin_date as association_date,
+                   EXTRACT(year from begin_date) as association_year,
+                   end_date as disassociation_date,
+                   EXTRACT(year from end_date) as disassociation_year,
+                   control_id as last_updated_by,
+                   control_date as last_update_date
+            From dss.promis_phase_revenue
+            where  revenue_package is not null
+              and  proj is not null
+              and  phase is not null
+              and  firm is not null
+              and  subproject > 0
+              and  begin_date is not null) pr
+    ) sq
+Where master_project is not null
+  and production_office is not null
+Group By master_project, project, task, firm;
+
+Insert  /*+ PARALLEL */
+        Into dss.mp_task_mapping_master2
+        (master_project                ,
+         production_office             ,
+         owning_production_office_flag ,
+         firm                          ,
+         project                       ,
+         task                          ,
+         association_date              ,
+         disassociation_date           ,
+         last_updated_by               ,
+         last_update_date              ,
+         control_date)
+Select  /*+ PARALLEL */
+        master_project,
+        MIN(production_office) keep (dense_rank last order by last_update_date) as production_office,
+        Decode(MIN(subproject) keep (dense_rank last order by last_update_date), 1, 'Y', 'N') as opof,
+        firm,
+        project,
+        task,
+        MIN(association_date) as association_date,
+        MAX(disassociation_date) as disassociation_date,
+        NVL(MIN(last_updated_by) keep (dense_rank last order by last_update_date), ' ') as last_updated_by,
+        NVL(MAX(last_update_date), sysdate) as last_update_date,
+        sysdate
+From 
+    (Select (Select master_project
+             From   (Select distinct tb.year, tb.master_project
+                     From dss.tag_the_base_master tb
+                     Where tb.revenue_package = pr.revenue_package
+                       and tb.year between pr.association_year and pr.disassociation_year
+                     Order By tb.year desc)
+             Where rownum <= 1) as master_project,
+            pr.*,
+            NVL((Select production_office
+                 From  (Select rp.production_office
+                        From   dss.promis_revpkgspo rp
+                        where  rp.revenue_package = pr.revenue_package
+                          and  rp.subproject      = pr.subproject
+                          and  rp.firm            = pr.firm
+                        order by rp.expiration_date desc)
+                 Where rownum <= 1), 
+                 (Select production_office
+                 From  (Select rp.production_office
+                        From   dss.promis_revpkgspo rp
+                        where  rp.revenue_package = pr.revenue_package
+                          and  rp.firm            = pr.firm
+                        order by rp.expiration_date desc)
+                 Where rownum <= 1)) as Production_office
+    From   (Select revenue_package,
+                   subproject,       
+                   firm,
+                   proj as project,
+                   phase as task,       
+                   begin_date as association_date,
+                   EXTRACT(year from begin_date) as association_year,
+                   end_date as disassociation_date,
+                   EXTRACT(year from end_date) as disassociation_year,
+                   control_id as last_updated_by,
+                   control_date as last_update_date
+            From dss.promis_phase_revenue
+            where  revenue_package is not null
+              and  proj is not null
+              and  phase is not null
+              and  firm is not null
+              and  subproject > 0
+              and  begin_date is not null
+              and  begin_date >= To_Date('20160101','YYYYMMDD')) pr
+    ) sq
+Where master_project is not null
+  and production_office is not null
+Group By master_project, project, task, firm;
+
+Select * from dss.mp_task_mapping_master2;
+Select count(*) from dss.mp_task_mapping_master2;
+
+
