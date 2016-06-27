@@ -1,0 +1,41 @@
+#!/usr/bin/ksh
+. /u/dss/$DSS_MODE/transfers/globals.com
+
+#----------------------------------------------------------------------------------------------------
+#
+# Date        Developer        Change
+# ----------  ---------------  ----------------------------------------------------------------------
+# 06/27/2016  Cesar L.         Given a commma separated string of numbers, returns a table of numbers
+#                              Return Type: NumberTableType
+#----------------------------------------------------------------------------------------------------
+
+FUNC_NAME=StringToNumberTable
+
+run_sql <<-endsql
+
+  create or replace type NumberTableType as table of number;
+/
+  create or replace function ${FUNC_NAME}( p_str in varchar2 ) return NumberTableType
+  as
+      l_str   long default p_str || ',';
+      l_n        number;
+      l_data    NumberTableType := NumberTableType();
+  begin
+      loop
+          l_n := instr( l_str, ',' );
+          exit when (nvl(l_n,0) = 0);
+          l_data.extend;
+          l_data( l_data.count ) := ltrim(rtrim(substr(l_str,1,l_n-1)));
+          l_str := substr( l_str, l_n+1 );
+      end loop;
+      return l_data;
+  end;
+/
+
+
+show errors
+
+grant execute on ${FUNC_NAME} to dss_admin, dss_support_role, reports;
+
+endsql
+

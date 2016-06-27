@@ -81,12 +81,15 @@ Create Tagfile=0
 [Files - bin]
 0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/bin|table_exists.com
 [Files - dev - webapp_config - objects]
-0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_save_delegates.sp
-1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_rep_criteria.sp
-2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_web_tree_nodes.sp
+	0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_save_delegates.sp
+	1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_rep_criteria.sp
+	2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_web_tree_nodes.sp
+	3=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_master_project.sp
+	4=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_cesartest.sp
 [Files - dev - common - objects]
-0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/objects|xfer_validation_rules.tbl
-1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/objects|xfer_validation_errors.tbl
+	0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/objects|xfer_validation_rules.tbl
+	1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/objects|xfer_validation_errors.tbl
+	2=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/common/objects|StringToNumberTable.func
 [Files - dev - cost_load - objects]
 0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/cost_load/objects|stg_cost_summary.tbl
 1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/cost_load/objects|cost_summary.tbl

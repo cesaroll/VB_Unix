@@ -1,10 +1,15 @@
 select --* 
-      distinct name, type 
+      distinct name, type, criteria_id, creator_id
 from dss.bic_report_criteria 
 where form_id = 'REPORT_COST_DETAIL'
  and ((type = 'user' and creator_id = 15100)
        OR type = 'shared')
 order by type, name;
+
+Select * From dss.bic_report_criteria
+Where form_id = 'REPORT_COST_DETAIL'
+ and ((type = 'user' and creator_id = 15100)
+       OR type = 'shared');
 
 Select REPLACE(REPLACE(name, '<' , ''), '>', '') as name, type
 from (
@@ -92,3 +97,12 @@ desc dss.web_error_log;
 
 desc dss.web_account_mapping;
 
+
+Select * from dss.master_project;
+
+Select master_project, count(*)
+from dss.master_project
+group by master_project
+having count(*) > 1;
+
+desc dss.master_project;

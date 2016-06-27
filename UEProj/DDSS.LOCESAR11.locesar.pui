@@ -1,11 +1,19 @@
 [Open Files]
 Active File Display Mode=1
 Active File Index=0
-Open File Line0=459
-Open File Pos0=680
-Open File Window Pos0=0,1,-1,-1,-1,-1,5,27,1255,899
-Open File0=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/cost_load/migration|update_cost_fact_1.com
-Open File1=
+Open File Line0=0
+Open File Line1=0
+Open File Line2=0
+Open File Pos0=339
+Open File Pos1=480
+Open File Pos2=60
+Open File Window Pos0=0,1,-1,-1,-1,-1,5,27,1633,996
+Open File Window Pos1=0,1,-1,-1,-1,-1,5,27,1633,996
+Open File Window Pos2=0,1,-1,-1,-1,-1,5,27,1633,996
+Open File0=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_cesartest.sp
+Open File1=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_master_project.sp
+Open File2=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/common/objects|StringToNumberTable.func
+Open File3=
 Remember Files=1
 
 [Project Information]
@@ -13,24 +21,23 @@ Remember Files=1
 	Working Time=255196
 
 [Folders]
-bin=1
-dev=1
-dev - common=1
-dev - common - bin=1
-dev - common - objects=1
-dev - common - procs=1
-dev - cost_load=1
-dev - cost_load - bin=1
-dev - cost_load - migration=1
-dev - cost_load - objects=1
-dev - data=1
-dev - data - migration=1
-dev - mgt_organization=1
-dev - mgt_organization - objects=1
-dev - project_structure=1
-dev - project_structure - bin=1
-dev - transfers=1
-dev - warehouse=1
-dev - webapp_config=1
-dev - webapp_config - objects=1
+	bin=1
+	dev=1
+	dev - common=1
+	dev - common - bin=1
+	dev - common - objects=1
+	dev - common - procs=1
+	dev - cost_load=1
+	dev - cost_load - bin=1
+	dev - cost_load - migration=1
+	dev - cost_load - objects=1
+	dev - data=1
+	dev - data - migration=1
+	dev - mgt_organization - objects=1
+	dev - project_structure=1
+	dev - project_structure - bin=1
+	dev - transfers=1
+	dev - warehouse=1
+	dev - webapp_config=1
+	dev - webapp_config - objects=1
 
