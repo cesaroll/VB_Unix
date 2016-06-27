@@ -33,8 +33,8 @@ as
   v_query_str   varchar2(1000);
   type NumbersTable is table of number;
 begin
-
-  --ALTER SESSION ENABLE PARALLEL DML;
+  
+  EXECUTE IMMEDIATE 'ALTER SESSION ENABLE PARALLEL DML';
   
   dbms_output.put_line('P_type:    ' || p_type);
   dbms_output.put_line('p_param_1: ' || p_param_1);
@@ -47,7 +47,7 @@ begin
   
   dbms_output.put_line('Query String: ' || chr(10) || v_query_str);
   
-  open p_cursor for v_query_str using p_param_1;
+  open p_cursor for v_query_str using p_param_1, p_param_2;
   
 end;
 /

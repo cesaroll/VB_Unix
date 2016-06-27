@@ -85,7 +85,7 @@ Create Tagfile=0
 	1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_rep_criteria.sp
 	2=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_web_tree_nodes.sp
 	3=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_master_project.sp
-	4=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_cesartest.sp
+	4=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_validlist.sp
 [Files - dev - common - objects]
 	0=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/objects|xfer_validation_rules.tbl
 	1=FTP::KACI-DALBIC-01\/home/kaci-dalbic-01/dss/dev/common/objects|xfer_validation_errors.tbl

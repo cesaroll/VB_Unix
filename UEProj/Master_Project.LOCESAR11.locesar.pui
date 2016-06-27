@@ -1,19 +1,23 @@
 [Open Files]
 Active File Display Mode=1
-Active File Index=2
-Open File Line0=671
-Open File Line1=0
-Open File Line2=838
-Open File Pos0=0
-Open File Pos1=1117
+Active File Index=3
+Open File Line0=1578
+Open File Line1=10751
+Open File Line2=0
+Open File Line3=1323
+Open File Pos0=895
+Open File Pos1=10896
 Open File Pos2=0
+Open File Pos3=1371
 Open File Window Pos0=0,1,-1,-1,-1,-1,5,27,1633,996
 Open File Window Pos1=0,1,-1,-1,-1,-1,5,27,1633,996
 Open File Window Pos2=0,1,-1,-1,-1,-1,5,27,1633,996
+Open File Window Pos3=0,1,-1,-1,-1,-1,5,27,1633,996
 Open File0=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/bin|load_master_project_po.com
 Open File1=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/migration|load_master_project_po_hist.com
 Open File2=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project_master.tbl
-Open File3=
+Open File3=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project.view
+Open File4=
 Remember Files=1
 
 [Project Information]

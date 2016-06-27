@@ -1,0 +1,32 @@
+#!/usr/bin/ksh
+. /u/dss/$DSS_MODE/transfers/globals.com
+
+#----------------------------------------------------------------------------------------------------
+#
+# Date        Developer        Change
+# ----------  ---------------  ----------------------------------------------------------------------
+# 06/27/2016  Cesar L.         Used to improve response time from web app
+#                              
+#----------------------------------------------------------------------------------------------------
+
+BASE_NAME=CostReportMPSupplierSearch
+
+run_sql <<-ISQL_EOF
+
+
+CREATE MATERIALIZED VIEW ${VIEW_NAME}
+PARALLEL
+BUILD IMMEDIATE
+REFRESH FAST ON COMMIT AS
+  Select Distinct 
+          s.supplier_number,
+          s.supplier_name
+  From  supplier s Join cost_fact f 
+          On s.key_supplier = f.co_key_supplier 
+        Join top_task_organization t 
+          On f.co_key_top_task_org = t.key_top_task_org       
+  Where f.co_key_supplier > 0;
+
+GRANT SELECT ON ${VIEW_NAME} TO dss_admin, dss_support_role, reports;
+
+ISQL_EOF
