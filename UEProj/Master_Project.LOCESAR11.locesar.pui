@@ -1,15 +1,23 @@
 [Open Files]
 Active File Display Mode=1
-Active File Index=1
-Open File Line0=3994
-Open File Line1=1376
-Open File Pos0=4859
-Open File Pos1=1972
-Open File Window Pos0=0,1,-1,-1,-1,-1,5,27,1633,724
-Open File Window Pos1=0,1,-1,-1,-1,-1,5,27,1633,724
-Open File0=\\192.168.0.101\MyBackup\Backup\Backup\CesarWork\HealthCare\interChange\MMIS\Fin\WebUI\BudgetPeriodResults.ascx.cs
-Open File1=\\192.168.0.101\MyBackup\Backup\Backup\CesarWork\HealthCare\interChange\MMIS\Fin\WebUI\X1099CorrectionPanel.ascx.cs
-Open File2=
+Active File Index=0
+Open File Line0=19044
+Open File Line1=0
+Open File Line2=0
+Open File Line3=0
+Open File Pos0=20192
+Open File Pos1=0
+Open File Pos2=0
+Open File Pos3=0
+Open File Window Pos0=0,1,-1,-1,-1,-1,5,27,1708,996
+Open File Window Pos1=0,1,-1,-1,-1,-1,5,27,1708,996
+Open File Window Pos2=0,1,-1,-1,-1,-1,5,27,1708,996
+Open File Window Pos3=0,1,-1,-1,-1,-1,5,27,1708,996
+Open File0=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/migration|load_master_project_hist.com
+Open File1=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/migration|load_mp_task_mapping_hist.com
+Open File2=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/migration|load_srp_detail_hist.com
+Open File3=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/migration|load_super_revenue_project_hist.com
+Open File4=
 Remember Files=1
 
 [Project Information]

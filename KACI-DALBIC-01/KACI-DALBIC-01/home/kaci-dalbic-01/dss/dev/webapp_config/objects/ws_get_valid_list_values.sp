@@ -5,12 +5,12 @@
 #
 # Date        Developer        Change
 # ----------  ---------------  ----------------------------------------------------------------------
-# 06/30/2016  Cesar L.         Get List of valis selection values by type and parms 
-#                              and according to its corresponding SQL in table.
+# 06/30/2016  Cesar L.         Receives type anme value and executes corresponding SQL in 
+#                              web_valid_list_types table to get List of valid selection values 
 #                              
 #----------------------------------------------------------------------------------------------------
 
-SP=ws_get_avail_select_vals
+SP=ws_get_valid_list_values
 
 
 # Directories
@@ -35,47 +35,36 @@ create or replace procedure ${SP}
   p_param_1     in  varchar2,
   p_param_2     in  varchar2,
   p_param_3     in  varchar2,
-  p_nbr_col     out number,
-  p_header_1    out varchar2,
-  p_header_2    out varchar2,
-  p_header_3    out varchar2,
   p_cursor      out sys_refcursor
 )
 as
   v_query_str   ${TABLE_NAME}.Valid_Type_Sql%TYPE;
   v_nbr_parms   number(2) := 0;
+  v_parallel    number(2) := 0;
 begin
-  
-  EXECUTE IMMEDIATE 'ALTER SESSION ENABLE PARALLEL DML';
-  
+
   dbms_output.put_line('P_type:    ' || p_type);
   dbms_output.put_line('p_param_1: ' || p_param_1);
   dbms_output.put_line('p_param_2: ' || p_param_2);
   dbms_output.put_line('p_param_3: ' || p_param_3 || chr(10));
     
-  select  valid_type_sql, 
-          valid_type_nbr_columns, 
+  select  valid_type_sql,           
           regexp_count(valid_type_sql, 'PARAM'),
-          valid_type_id_header, 
-          valid_type_desc_header, 
-          valid_type_desc_header_2
-  into    v_query_str, 
-          p_nbr_col, 
-          v_nbr_parms, 
-          p_header_1,
-          p_header_2,
-          p_header_3
+          regexp_count(valid_type_sql, '+ PARALLEL')
+  into    v_query_str,
+          v_nbr_parms,
+          v_parallel
   from ${TABLE_NAME}
   where valid_type = p_type;
   
-  dbms_output.put_line('Nbr Col:   ' || TO_CHAR(p_nbr_col));
   dbms_output.put_line('Nbr Parms: ' || TO_CHAR(v_nbr_parms));
-  dbms_output.put_line('header_1:  ' || p_header_1);
-  dbms_output.put_line('header_2:  ' || p_header_2);
-  dbms_output.put_line('header_3:  ' || p_header_3 || chr(10));
+    
+  dbms_output.put_line(chr(10) || 'Query String: ' || chr(10) || v_query_str || chr(10) || chr(10));
   
-  dbms_output.put_line(chr(10) || 'Query String: ' || chr(10) || v_query_str || chr(10));
-  
+  IF v_parallel > 0 THEN  
+    EXECUTE IMMEDIATE 'ALTER SESSION ENABLE PARALLEL DML';
+    dbms_output.put_line('Parallel Enabled [' || TO_CHAR(v_parallel) || ']');  
+  END IF;
     
   
   IF v_nbr_parms=1 THEN
