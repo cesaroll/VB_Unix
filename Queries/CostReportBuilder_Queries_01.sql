@@ -6,6 +6,16 @@ where form_id = 'REPORT_COST_DETAIL'
        OR type = 'shared')
 order by type, name;
 
+select --* 
+      distinct name, type, criteria_id, creator_id
+from dss.bic_report_criteria 
+where form_id = 'REPORT_COST_DETAIL'
+ and ((type = 'user' and creator_id = 0)
+       OR type = 'shared')
+order by type, name;
+
+Select distinct name, type, criteria_id, creator_id from dss.bic_report_criteria where type = 'user' and creator_id = 0;
+
 Select * From dss.bic_report_criteria
 Where form_id = 'REPORT_COST_DETAIL'
  and ((type = 'user' and creator_id = 15100)

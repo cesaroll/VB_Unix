@@ -1,42 +1,35 @@
 [Open Files]
 Active File Display Mode=1
-Active File Index=3
-Open File Line0=1578
-Open File Line1=10751
-Open File Line2=0
-Open File Line3=1323
-Open File Pos0=895
-Open File Pos1=10896
-Open File Pos2=0
-Open File Pos3=1371
-Open File Window Pos0=0,1,-1,-1,-1,-1,5,27,1633,996
-Open File Window Pos1=0,1,-1,-1,-1,-1,5,27,1633,996
-Open File Window Pos2=0,1,-1,-1,-1,-1,5,27,1633,996
-Open File Window Pos3=0,1,-1,-1,-1,-1,5,27,1633,996
-Open File0=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/bin|load_master_project_po.com
-Open File1=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/migration|load_master_project_po_hist.com
-Open File2=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project_master.tbl
-Open File3=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/project_structure/objects|master_project.view
-Open File4=
+Active File Index=1
+Open File Line0=3994
+Open File Line1=1376
+Open File Pos0=4859
+Open File Pos1=1972
+Open File Window Pos0=0,1,-1,-1,-1,-1,5,27,1633,724
+Open File Window Pos1=0,1,-1,-1,-1,-1,5,27,1633,724
+Open File0=\\192.168.0.101\MyBackup\Backup\Backup\CesarWork\HealthCare\interChange\MMIS\Fin\WebUI\BudgetPeriodResults.ascx.cs
+Open File1=\\192.168.0.101\MyBackup\Backup\Backup\CesarWork\HealthCare\interChange\MMIS\Fin\WebUI\X1099CorrectionPanel.ascx.cs
+Open File2=
 Remember Files=1
 
 [Project Information]
-	Project Start=E0070500010002000F0013001800000029
-	Working Time=377086
+Project Start=E0070500010002000F0013001800000029
+Working Time=377086
 
 [Folders]
-	dev=1
-	dev - project_structure=1
-	dev - project_structure - bin=1
-	dev - project_structure - bin - master_project=1
-	dev - project_structure - bin - master_project_po=1
-	dev - project_structure - bin - mp_task_mapping=1
-	dev - project_structure - bin - super_revenue_project=1
-	dev - project_structure - migration=1
-	dev - project_structure - migration - master_project=1
-	dev - project_structure - migration - mp_task_mapping=1
-	dev - project_structure - objects=1
-	dev - project_structure - objects - master_project=1
-	dev - project_structure - objects - mp_task_mapping=1
-	dev - project_structure - objects - promis=1
+dev=1
+dev - project_structure=1
+dev - project_structure - bin=1
+dev - project_structure - bin - master_project=1
+dev - project_structure - bin - master_project_po=1
+dev - project_structure - bin - mp_task_mapping=1
+dev - project_structure - bin - super_revenue_project=1
+dev - project_structure - migration=1
+dev - project_structure - migration - master_project=1
+dev - project_structure - migration - master_project_po=1
+dev - project_structure - migration - mp_task_mapping=1
+dev - project_structure - objects=1
+dev - project_structure - objects - master_project=1
+dev - project_structure - objects - mp_task_mapping=1
+dev - project_structure - objects - promis=1
 

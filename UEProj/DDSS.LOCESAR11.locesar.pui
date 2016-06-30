@@ -1,18 +1,23 @@
 [Open Files]
 Active File Display Mode=1
-Open File Line0=682
+Active File Index=3
+Open File Line0=0
 Open File Line1=0
 Open File Line2=0
-Open File Pos0=944
-Open File Pos1=480
-Open File Pos2=587
-Open File Window Pos0=0,1,-1,-1,-1,-1,5,27,1633,996
-Open File Window Pos1=0,1,-1,-1,-1,-1,5,27,1633,996
-Open File Window Pos2=0,1,-1,-1,-1,-1,5,27,1633,996
-Open File0=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_validlist.sp
-Open File1=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_master_project.sp
-Open File2=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/common/objects|StringToNumberTable.func
-Open File3=
+Open File Line3=19084
+Open File Pos0=0
+Open File Pos1=448
+Open File Pos2=0
+Open File Pos3=20454
+Open File Window Pos0=0,1,-1,-1,-1,-1,5,27,1633,724
+Open File Window Pos1=0,1,-1,-1,-1,-1,5,27,1633,724
+Open File Window Pos2=0,1,-1,-1,-1,-1,5,27,1633,724
+Open File Window Pos3=0,1,-1,-1,-1,-1,5,27,1633,724
+Open File0=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_project.sp
+Open File1=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_customer.sp
+Open File2=FTP::KACI-DALBIC-01\//home/kaci-dalbic-01/dss/dev/webapp_config/objects|ws_get_validlist.sp
+Open File3=C:\Users\locesar\OneDrive\HPE\BlackAndVeatch\VBWorkspaces\MyBackup\Dev_20160628_1\Release 1.0\DssBicWcf\DssBicWcf\Logic\Shared\SharedLogic.cs
+Open File4=
 Remember Files=1
 
 [Project Information]
